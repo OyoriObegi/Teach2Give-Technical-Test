@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Accordion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1> &#x2726; FAQs</h1>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <p>What is Frontend Mentor, and how will it help me?</p>
+                <span class="faq-icon">&#43;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Frontend Mentor offers realistic coding challenges to help developers improve their front-end coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <p>Is Frontend Mentor free?</p>
+                <span class="faq-icon">&#43;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, Frontend Mentor offers both free and premium coding challenges.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <p>Can I use Frontend Mentor projects in my portfolio?</p>
+                <span class="faq-icon">&#43;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, you can use projects completed on Frontend Mentor in your portfolio to showcase your skills.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <p>How can I get help if I'm stuck on a challenge?</p>
+                <span class="faq-icon">&#43;</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can ask questions in the Frontend Mentor Slack community or browse solutions submitted by others for inspiration.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-icon');
+
+            question.addEventListener('click', () => {
+                const currentlyOpen = document.querySelector('.faq-answer.visible');
+                const activeIcon = document.querySelector('.faq-icon.rotate');
+                
+                if (currentlyOpen && currentlyOpen !== answer) {
+                    currentlyOpen.classList.remove('visible');
+                    activeIcon.classList.remove('rotate');
+                }
+
+                answer.classList.toggle('visible');
+                icon.classList.toggle('rotate');
+            });
+        });
+    </script>
+</body>
+</html>
